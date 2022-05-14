@@ -12,6 +12,8 @@ const postController = require("../controllers/postController");
     //Obtener posts
     router.get("/social/posts/:idPost", postController.getPost);
     //Obtener post de las personas que seguimos
-    router.get("/social/posts/timeline/all", postController.getTimeline);
+    router.get("/social/posts/timeline/:idUser", postController.getTimeline);
+    //Obtener posts de cierta persona
+    router.get("/social/profile/:username", postController.getUserPosts);
 
 module.exports = router;

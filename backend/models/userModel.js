@@ -48,6 +48,11 @@ const UserSchema = new mongoose.Schema(
       type: String,
       max: 30,
       default: "",
+    },    
+    from: {
+      type: String,
+      max: 30,
+      default: "",
     },
   },
   { timestamps: true, versionKey: false }
