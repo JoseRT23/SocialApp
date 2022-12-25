@@ -10,7 +10,6 @@ import { useParams } from 'react-router-dom'
 const Profile = () => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
-  console.log('USUARIO', user)
   const params = useParams();
 
   useEffect(() => {
@@ -25,12 +24,12 @@ const Profile = () => {
     <>
     <Navbar />
     <div className="profileContainer">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div className="profileRight">
           <div className="profileRightTop">
               <div className="profileCover">
-                <img className='profileCoverImg' src={user.coverPicture || PF+"person/noCover.png"} />
-                <img className='profileUserImg' src={user.profilePicture || PF+"person/noAvatar.png"} />
+                <img className='profileCoverImg' src={user.coverPicture ? PF + user.coverPicture : PF+"person/noCover.png"} />
+                <img className='profileUserImg' src={user.profilePicture ? PF + user.profilePicture : PF+"person/noAvatar.png"} />
               </div>
               <div className="profileInfo">
                 <h4 className="profileInfoName">{user.username}</h4>
@@ -38,8 +37,12 @@ const Profile = () => {
               </div>
           </div>
           <div className="profileRightBottom">
-            <Feed username={params.username} />
-            <Rightbar user={user} />
+            <div className="rightbar">
+              <Rightbar user={user} onlineUsers={[]} />
+            </div>
+            <div className="feed">
+              <Feed username={params.username} />
+            </div>
           </div>
       </div>
     </div>

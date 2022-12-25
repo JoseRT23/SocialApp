@@ -1,21 +1,21 @@
 import React from 'react'
-import Feed from '../../components/Feed/Feed'
 import Navbar from '../../components/Navbar/Navbar'
-import Rightbar from '../../components/Rightbar/Rightbar'
+// import Rightbar from '../../components/Rightbar/Rightbar'
+import Information from '../../components/Setings/Information'
 import Sidebar from '../../components/Sidebar/Sidebar'
+import './Setings.css'
 
 const Setings = () => {
   return (
       <>
         <Navbar />
         <div className="setingsContainer">
-                <div className="profileRightBottom">
-                    <Sidebar />
-                    <div className="setingsInfo">
-                        <h1 className='my-4' >Edita tu Información</h1>
-                    </div>
-                    <Rightbar />
-                </div>
+            <Sidebar />
+            <Information />
+            <div className='border'>
+
+            </div>
+            {/* <Rightbar onlineUsers={[]} /> */}
         </div>
         
       </>

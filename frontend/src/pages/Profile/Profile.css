@@ -1,4 +1,5 @@
 .profileContainer{
+    /* margin: auto; */
     display: flex;
 }
 
@@ -47,4 +48,8 @@
 
 .profileRightBottom{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
 }

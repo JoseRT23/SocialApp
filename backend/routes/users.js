@@ -13,5 +13,7 @@ router.put("/social/users/:id/follow", userController.followUser);
 router.put("/social/users/:id/unfollow", userController.unfollowUser);
 //Buscar amigos de un usuario
 router.get("/social/users/friends/:idUser", userController.getFriends);
+//Buscar usuarios en la app
+router.get("/social/users/search/", userController.searchUser);
 
 module.exports = router;

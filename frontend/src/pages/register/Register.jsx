@@ -1,14 +1,14 @@
 import React, { useRef } from 'react'
-import './Register.css'
-import axios from 'axios'
 import { useHistory } from 'react-router'
+import axios from 'axios'
+import './Register.css'
 
 const Register = () => {
+    const history = useHistory()
     const username = useRef();
     const email = useRef();
     const password = useRef();
     const repeatPassword = useRef();
-    const history = useHistory()
 
     const handleRegister = async (e) => {
          e.preventDefault();
@@ -72,7 +72,10 @@ const Register = () => {
                         <button className="registerButton" type='submit'>
                             Crear cuenta
                         </button>
-                        <button className="registerRegisterButton">Inicia sesión en tú cuenta</button>
+                        <button className="registerRegisterButton"
+                                onClick={() => history.push('/')}>
+                            Inicia sesión en tú cuenta
+                        </button>
                     </form>
                 </div>
             </div>

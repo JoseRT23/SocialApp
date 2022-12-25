@@ -61,6 +61,7 @@
   .rightbarFollowings{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
   }
   
@@ -69,6 +70,11 @@
     flex-direction: column;
     margin-bottom: 20px;
     cursor: pointer;
+  }
+
+  .followingsContainer {
+    display: flex;
+    flex-wrap: wrap;
   }
   
   .rightbarFollowingImg{

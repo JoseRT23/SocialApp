@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Post.css";
 import { MoreVert } from "@mui/icons-material";
 import axios from "axios";
-import {format} from 'timeago.js'
+import moment from 'moment'
+import 'moment/locale/es';
 import {Link} from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext";
 
 const Post = ({post}) => {
-  
+  moment.locale('es');
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
@@ -50,7 +51,7 @@ const Post = ({post}) => {
               />
             </Link>
             <span className="postUsername">{user.username}</span>
-            <span className="postDate">{format(post.createdAt)}</span>
+            <span className="postDate">{moment(post.createdAt).fromNow()}</span>
           </div>
           <div className="postTopRight">
             <MoreVert />

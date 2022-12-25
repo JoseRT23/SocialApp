@@ -128,3 +128,15 @@ exports.unfollowUser = async (req, res, next) => {
       res.status(500).json(error);
     }
   }
+
+  exports.searchUser = async (req, res, next) => {
+    const username = req.query.username;
+    try {
+      const user = await User.find({username : new RegExp(username, 'i')});
+      res.status(200).json(user);
+      
+    } catch (error) {
+      console.log(error);
+      next();
+    }
+  }

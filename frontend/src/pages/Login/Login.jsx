@@ -2,10 +2,12 @@ import React, { useContext, useRef } from 'react'
 import { login } from '../../apiCalls';
 import { AuthContext } from '../../context/AuthContext';
 import {CircularProgress} from '@material-ui/core'
+import { useHistory } from "react-router-dom";
 import './Login.css'
 
 
 const Login = () => {
+    const history = useHistory();
     const email = useRef();
     const password = useRef();
     const {user, isFetching, error, dispatch} = useContext(AuthContext);
@@ -16,8 +18,6 @@ const Login = () => {
                password:password.current.value}, 
                dispatch);
     };
-
-    console.log(user)
 
   return (
       <>
@@ -51,7 +51,10 @@ const Login = () => {
                             {isFetching ? <CircularProgress color='inherit' size="35px"/> : "Inicia sesión"}
                         </button>
                         <span>Olvidaste la Contraseña?</span>
-                        <button className="loginRegisterButton">Crear una nueva cuenta</button>
+                        <button className="loginRegisterButton"
+                                onClick={() => history.push('/register')}>
+                            Crear una nueva cuenta
+                        </button>
                     </form>
                 </div>
             </div>

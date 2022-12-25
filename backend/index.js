@@ -11,6 +11,8 @@ const path = require("path");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 const postRoutes = require("./routes/posts");
+const conversationRoutes = require("./routes/conversations");
+const messageRoutes = require("./routes/message");
 
 //Hacer uso de dotenv
 dotenv.config();
@@ -55,6 +57,8 @@ app.post("/social/upload", upload.single("file"), (req, res) => {
 app.use(authRoutes);
 app.use(userRoutes);
 app.use(postRoutes);
+app.use(conversationRoutes);
+app.use(messageRoutes);
 
 //Puesta en fucionamiento del servidor
 app.listen(5000, () => {

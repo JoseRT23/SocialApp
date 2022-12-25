@@ -5,6 +5,21 @@ import { Users } from '../../dummyData'
 import './Sidebar.css'
 
 const Sidebar = () => {
+  // const [friends, setFriends] = useState([]);
+  // const [onlineFriends, setOnlineFriends] = useState([]);
+
+  // useEffect(() => {
+  //   const getFriends = async () => {
+  //     const res = await axios.get(`/users/friends/${currentUser}`);
+  //     setFriends(res.data);
+  //   }
+  //   getFriends();
+  // }, [currentUser]);
+
+  // useEffect(() => {
+  //   setOnlineFriends(friends.filter(f => onlineUsers.includes(f._id)));
+  // }, [friends, onlineUsers]);
+
   return (
     <div className='sidebarContainer'>
       <div className="sidebarWrapper">
@@ -37,6 +52,10 @@ const Sidebar = () => {
         <button className="sidebarButton">Ver más</button>
         <hr className='sidebarHr' />
         <ul className="sidebarFriendList">
+          {/* {onlineFriends.map(user => (
+            <CloseFriend user={user}/>
+          ))
+          } */}
           {Users.map(user => (
             <CloseFriend key={user.id} user={user}/>
           ))}
